@@ -1,0 +1,80 @@
+const canvas = document.getElementById("BallGame");
+const context = canvas.getContext("2d");
+
+//cover
+
+canvas.style.border = "2px solid black";
+
+// for strokeline heavy
+context.lineWidth = 2;
+
+const pad_width = 100;
+const pad_margin_Bottom = 50;
+const pad_height = 20;
+let leftArrow = false;
+let rightArrow = false;
+
+const pad = {
+     x : canvas.width/2 - pad_width / 2,
+     y : canvas.height - pad_margin_Bottom - pad_height,
+     width : pad_width,
+     height : pad_height,
+     dx : 5
+}
+
+function drawpad(){
+    context.fillStyle = "blue";
+    console.log(pad.x);
+    console.log(pad.y);
+    context.fillRect(pad.x, pad.y, pad.width, pad.height);
+
+    context.strokeStyle = "red";
+    context.strokeRect(pad.x, pad.y, pad.width, pad.height);
+}
+//-- controle pad
+document.addEventListener("keydown", function (event){
+    if(event.keyCode == '37'){
+        leftArrow = true;
+    }else if(event.keyCode == '39'){
+        rightArrow = true;
+    }
+});
+
+document.addEventListener("keyup",function(event){
+    if(event.keyCode == '37'){
+        leftArrow = false;
+    }else if(event.keyCode == '39'){
+        rightArrow = false;
+    }
+});
+
+//------ move pad
+
+function padMove(){
+    if(rightArrow && pad.x + pad.width < canvas.width){
+        pad.x += pad.dx;
+    }else if(leftArrow && pad.x > 0){
+        pad.x -= pad.dx;
+    }
+}
+
+function draw(){
+    drawpad();
+}
+
+function update(){
+      padMove();
+
+}
+
+function loop(){
+
+    context.drawImage(BgImg,0,0)
+    draw();
+
+    update();
+    
+    requestAnimationFrame(loop);
+}
+
+loop();

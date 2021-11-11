@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+<!-- top bar  -->
+  <body>
+    <nav>
+      <ul>
+        <li class="logo"><img src="Images/logo.png" alt="Spotify" /> Aman Kumar</li>
+      </ul>
+    </nav> 
+
+    <div class="container" style="background-image: url(Images/bg.png);">
+      <div class="songList">
+        <h1>Music PlayList</h1>
+        <div class="songnum">
+          <div class="songItem">
+            <img alt="1" />
+            <span class="songName">Let me Love You</span>
+            <span class="songlistplay"><span class="timestamp">
+                <i id="0" class="far songPlay fa-play-circle"></i> </span></span>
+          </div>
+          <div class="songItem">
+            <img alt="1" />
+            <span class="songName">Let me Love You</span>
+            <span class="songlistplay"><span class="timestamp">
+                <i id="1" class="far songPlay fa-play-circle"></i> </span></span>
+          </div>
+          <div class="songItem">
+            <img alt="1" />
+            <span class="songName">Let me Love You</span>
+            <span class="songlistplay"><span class="timestamp">
+                <i id="2" class="far songPlay fa-play-circle"></i> </span></span>
+          </div>
+          <div class="songItem">
+            <img alt="1" />
+            <span class="songName">Let me Love You</span>
+            <span class="songlistplay"><span class="timestamp">
+                <i id="3" class="far songPlay fa-play-circle"></i> </span></span>
+          </div>
+          <div class="songItem">
+            <img alt="1" />
+            <span class="songName">Let me Love You</span>
+            <span class="songlistplay"><span class="timestamp">
+                <i id="4" class="far songPlay fa-play-circle"></i> </span></span>
+          </div>
+          
+        </div>
+      </div>
+      <div class="songBanner"></div>
+    </div>
+
+    <div class="bottom">
+      <input type="range" name="range" id="bar" min="0" value="0" max="100"/>
+      <div class="icons">
+        <!-- fontawesome icons -->
+        <i class="fas fa-2x fa-step-backward" id="Back"></i>
+        <i class="far fa-3x fa-play-circle" id="masterPlay"></i>
+        <i class="fas fa-2x fa-step-forward" id="next"></i>
+      </div>
+      <div class="info">
+        <img src="Images/playing.gif" width="42px" alt="" id="gif" />
+        <span id="masterSong">Warriyo - Mortals [NCS Release]</span>
+      </div>
+    </div>
+    <script src="Scripts/script.js"></script>
+    <!-- font awosom use for button play  -->
+    <script src="https://kit.fontawesome.com/26504e4a1f.js" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+body{
+    background-color: rgb(151, 149, 148);
+}
+.container{
+    padding: 10px;
+    border: transparent;
+    width: 40%;
+    margin: auto;
+}
+
+.container .input{
+    width: 87%;
+    height: 20px;
+}
+.container .btn{
+    width: 50px;
+    height: 25px;
+}
+
+.container ul{
+    list-style: none;
+    padding: 2px;
+    margin: 2px;
+}
+
+.container li{
+    color: rgb(24, 25, 92);
+    margin: 5px;
+}
+
+.container li a{
+    float: right;
+    color: rgb(46, 31, 31);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container #error{
+    color: red;
+    font-size: 20px;
+}
+#click{
+    transition: all .3s ease;
+}
+#click:hover{
+    color: black;
+    text-transform: uppercase;
+}
+
+#error:hover{
+    color: black;
+    text-transform: uppercase;
+}

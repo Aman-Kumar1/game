@@ -1,0 +1,60 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: whitesmoke;
+}
+#container {
+  background-color: rgba(17, 22, 37, 0.651);
+  border: transparent;
+  height: 300px;
+  width: 750px;
+  margin: auto;
+  text-align: center;
+  color: aliceblue;
+  margin-top: 15%;
+}
+/* p {
+  color: white;
+} */
+#userinput {
+  width: 100px;
+  margin: 25px auto;
+}
+#btn{
+  margin: 25px auto auto 5px;
+  margin-bottom: 18px;
+  margin-right: 20px;
+}
+#re{
+  margin-right: 60px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.line {
+  margin-left: 385px;
+  margin-top: -43px;
+}
+
+.x-class {
+  display: inline-block;
+  margin-left: 381px;
+  margin-top: -19px;
+}
+h3{
+  text-align: center;
+}
+h3:hover{
+  color: rgb(255, 255, 255);
+}
+#btn:hover {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 1.5rem;
+}
+#re:hover {
+  cursor: pointer;
+  width: 3rem;
+  height: 2rem;
+}
