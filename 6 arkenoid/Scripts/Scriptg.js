@@ -1,3 +1,7 @@
+
+
+
+
 const canvas = document.getElementById("BallGame");
 const context = canvas.getContext("2d");
 
@@ -20,7 +24,7 @@ let upScore = 5;
 let Level = 1;
 const Max_level = 3;
 let game_over = false;
- 
+let brick_count = 0;
 
 const pad = {
      x : canvas.width/2 - pad_width / 2,
@@ -31,7 +35,7 @@ const pad = {
 }
 
 function drawpad(){
-    context.fillStyle = "blue";
+    context.fillStyle = "#008080";
     context.fillRect(pad.x, pad.y, pad.width, pad.height);
 
     context.strokeStyle = "red";
@@ -58,9 +62,9 @@ document.addEventListener("keyup",function(event){
 
 function padMove(){
     if(rightArrow && pad.x + pad.width < canvas.width){
-        pad.x += pad.dx;
+        pad.x += pad.dx + 5;
     }else if(leftArrow && pad.x > 0){
-        pad.x -= pad.dx;
+        pad.x -= pad.dx + 5;
     }
 }
 //------------------------------------- create ball-------------------
@@ -68,7 +72,7 @@ const ball = {
     x : canvas.width /2,
     y: pad.y - ballradius,
     radius: ballradius,
-    speed : 3,
+    speed : 4,
     dx : 3 * (Math.random() * 2 - 1),
     dy : -3
 }
@@ -92,7 +96,7 @@ function moveBall(){
 
 // -- create bricks
 const brick = {
-    row : 6,
+    row : 5,
     column : 10,
     width : 55,
     height : 20,
@@ -118,7 +122,7 @@ function makeBricks(){
 
 makeBricks();
 
-//draw bricks
+//---------------draw bricks
 
 function drawBricks(){
     for(let r = 0 ; r < brick.row ; r++){
@@ -146,10 +150,10 @@ function ballBrick(){
                         ball.dy = -ball.dy;
                         b.status = false;
                         Score += upScore;
-                }
             }
         }
     }
+}
 }
 
 // game stats
@@ -173,21 +177,29 @@ function draw(){
     Status(Score, 35, 25, ScoreImg, 5, 5);
     // lives
     Status(Life, canvas.width - 25, 25, LifeImg, canvas.width-55, 5);
-    // level
-    Status(Level, canvas.width/2, 25,LevelImg, canvas.width/2 - 30, 5)
+    
 }
 // game over
+
 function gameOver(){
     if(Life <= 0){
         game_over = true;
-    }
-    if(Life == 0){
-        window.alert("Game Over");
+        context.font="50px arial";
+        context.fillStyle = "blue";
+        context.textAlign = "center";
+        context.fillText("You Loose Click on playAgain",canvas.width/2 ,canvas.height/2 - 30);
     }
 }
 
-// level up
-
+function gamewon(){
+    if(Score == 250){
+        game_over = true;
+        context.font="50px arial";
+        context.fillStyle = "blue";
+        context.textAlign = "center";
+        context.fillText("You Won Click on playAgain",canvas.width/2 ,canvas.height/2 - 30);
+    }
+}
 
 // Ball and Wall Colide
 function ballwall(){
@@ -219,11 +231,11 @@ function padball(){
         let angle = colide * Math.PI/3;
         ball.dx = ball.speed * Math.sin(angle);
         ball.dy = -ball.speed * Math.cos(angle);
-        ball.speed += 0.1;
+        ball.speed += 0.10;
     }
 }
 
-//// reset the ball
+////----------- reset the ball
 function resetball(){
     ball.x = canvas.width /2;
     ball.y = pad.y - ballradius;
@@ -238,6 +250,7 @@ function update(){
       padball();
       ballBrick();
       gameOver();
+      gamewon();
 }
 
 function loop(){
@@ -253,20 +266,10 @@ function loop(){
 
 loop();
 
-const gameover = document.getElementById("gameover");
-const youwin = document.getElementById("youwin");
-const youlose = document.getElementById("youlose");
-const restart = document.getElementById("restart");
 restart.addEventListener("click" , function(){
     location.reload();
 })
 
-function YouWinn(){
-    gameover.style.display = "block";
-    youwin.style.display = "block";
-}
-
-function Youlose(){
-    gameover.style.display = "block";
-    youlose.style.display = "block";
+function PlayAgain(){
+    location.reload();   
 }

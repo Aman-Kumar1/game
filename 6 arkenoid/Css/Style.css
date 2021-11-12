@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+.BallGame{
+    align-items: center;
+}
+body{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+}
+#restart{
+    position: absolute;
+    left: 2%;
+    top: 90%;
+    
+}
+#playAgain{
+    position: absolute;
+    left: 90%;
+    bottom: 7%;
+  
+
+}
